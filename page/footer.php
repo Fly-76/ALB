@@ -24,8 +24,12 @@
   $pos = strrpos($page, "/");
   if ($pos !== false) { 
     $page = substr($page, $pos+1);
-    $page = substr($page, 0, -4);
+    $pos = strpos($page, ".");
+    if ($pos !== false) $page = substr($page, 0, $pos);
+      
+    //$page = substr($page, 0, -4);
   }
+  echo $page;
 ?>
   <script src="js/<?php echo $page ?>.js"></script>
 
