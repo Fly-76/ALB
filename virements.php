@@ -1,4 +1,5 @@
 <?php
+  $title = "Effectuer un virement";
   include "page/header.php";
 ?>
 

@@ -45,7 +45,7 @@
   <!-- header -->
   <header class="jumbotron jumbotron-fluid text-white bg-dark">
     <div class="container">
-      <h1 class="display-4">Consulter vos comptes</h1>
+      <h1 class="display-4"><?php echo $title ?></h1>
     </div>
   </header>
   <!-- end header -->

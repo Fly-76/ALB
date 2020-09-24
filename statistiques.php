@@ -1,4 +1,5 @@
 <?php
+  $title = "Statistiques CAC40";
   include "page/header.php";
 ?>
 
