@@ -4,9 +4,13 @@
 
   $account = "";
   if(isset($_GET['account']) && !empty($_GET['account'])) 
-    $account = htmlspecialchars($_GET['account']);
+    $account_number = htmlspecialchars($_GET['account']);
 
-    $title = "Compte : " . $account;
+    $account = $accounts[$account_number];
+    var_dump($account);
+
+
+    $title = "Compte : " . $account_number;
     include "page/header.php";
 ?>
 
