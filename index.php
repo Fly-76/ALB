@@ -15,7 +15,7 @@
   <div class ="col-12 col-sm-6 col-lg-3 my-2">
     <div class="card border-primary h-100">
       <div class="card-header">
-        <a href="account.php">
+        <a href="account.php?account=<?php echo $value['number'] ?>" >
           <?php echo $value['number'] ?>
         </a>
       </div>

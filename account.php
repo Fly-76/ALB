@@ -8,6 +8,18 @@
   <main class="container">
     <section class="row">
 
+
+
+    <?php
+    if(isset($_GET['account']) && !empty($_GET['account'])) {
+        echo htmlspecialchars($_GET['account']);
+    }
+    ?>
+
+
+
+
+
     </section>
   </main>
   <!-- end main -->
