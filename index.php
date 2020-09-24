@@ -1,4 +1,5 @@
 <?php
+  $title = "Consulter vos comptes";
   include "page/header.php";
   require_once "data/accounts.php";
   $accounts = get_accounts();

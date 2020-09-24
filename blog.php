@@ -1,4 +1,5 @@
 <?php
+  $title = "Toute l'actualité de notre blog";
   include "page/header.php";
 ?>
 

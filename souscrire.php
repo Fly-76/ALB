@@ -1,4 +1,5 @@
 <?php
+  $title = "Ouvrir un nouveau compte";
   include "page/header.php";
 ?>
 
