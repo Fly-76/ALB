@@ -29,7 +29,7 @@
       
     //$page = substr($page, 0, -4);
   }
-  echo $page;
+
 ?>
   <script src="js/<?php echo $page ?>.js"></script>
 
