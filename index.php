@@ -12,10 +12,13 @@
   foreach ($accounts as $keys => $value):
 ?>
 
-
   <div class ="col-12 col-sm-6 col-lg-3 my-2">
     <div class="card border-primary h-100">
-      <div class="card-header"><?php echo $value['number'] ?></div>
+      <div class="card-header">
+        <a href="account.php">
+          <?php echo $value['number'] ?>
+        </a>
+      </div>
       <h4 class="card-title text-center">Solde de compte</h4>
       <p class="card-text text-right pr-3"><?php echo $value['amount'] ?></p>
       <div class="card-footer">
