@@ -8,24 +8,6 @@
   </footer>
   <!-- end footer -->
 
-  <!-- modal -->
-  <div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rulesTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header bg-warning">
-          <h5 class="modal-title" id="rulesTitle">Attention</h5>
-        </div>
-        <div id="rulesContent" class="modal-body">
-
-        </div>
-        <div class="modal-footer bg-warning">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">J'ai compris</button>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- end modal -->
-
   <!-- Boylerplate JavaScript -->
   <script src="js/vendor/modernizr-3.11.2.min.js"></script>
   <script src="js/plugins.js"></script>
