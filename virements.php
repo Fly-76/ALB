@@ -1,4 +1,9 @@
 <?php
+  // If user's not logged then go to login page
+  session_start();
+  if (!isset($_SESSION['logged']))
+    header('Location: login.php');
+
   $title = "Effectuer un virement";
   include "page/header.php";
 ?>

@@ -1,14 +1,18 @@
 <?php
-  $title = "Ouvrir un nouveau compte";
-  include "page/header.php";
+  // If user's not logged then go to login page
+  session_start();
+  if (!isset($_SESSION['logged']))
+    header('Location: login.php');
 
   if(isset($_POST['type']) && !empty($_POST['type'])) 
     $type = htmlspecialchars($_POST['type']);
 
   if(isset($_POST['amount']) && !empty($_POST['amount'])) 
     $amount = htmlspecialchars($_POST['amount']);
-  
-  ?>
+
+  $title = "Ouvrir un nouveau compte";
+  include "page/header.php";
+?>
 
   <!-- main -->
   <main class="container">
@@ -53,7 +57,6 @@
 <?php
   }
 ?>
-
 
     </section>
   </main>

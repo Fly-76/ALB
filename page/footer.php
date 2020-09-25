@@ -1,6 +1,6 @@
 
   <!-- footer -->
-  <footer class="jumbotron jumbotron-fluid text-white bg-dark">
+  <footer class="jumbotron jumbotron-fluid text-white bg-dark mb-0">
     <div class="container">
       <!-- <h1 class="display-4">ALB</h1> -->
       <p class="lead">Copyright © 2020 Ada Lovelace's Bank. Tous droits réservés.</p>

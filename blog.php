@@ -1,4 +1,6 @@
 <?php
+  session_start();
+  session_destroy();
   $title = "Toute l'actualité de notre blog";
   include "page/header.php";
 ?>
