@@ -11,7 +11,7 @@
     require "page/database.php";
     $db = dbConnect();
   
-    $query = $db->prepare("SELECT * FROM users WHERE u_email = :email");
+    $query = $db->prepare("SELECT * FROM alb_users WHERE u_email = :email");
     $query->execute(["email" => $id]);
 
     $user = $query->fetch(PDO::FETCH_ASSOC);
