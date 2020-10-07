@@ -31,6 +31,7 @@
 		u_name VARCHAR(30) NOT NULL,
 		u_address VARCHAR(50) NOT NULL,
 		u_email VARCHAR(20) NOT NULL,
+		u_password VARCHAR(100),
 		u_birthdate DATE NOT NULL,
 		u_creation_date DATE NOT NULL,
 		PRIMARY KEY (u_id)
@@ -72,8 +73,8 @@
 * Fill the database with dummy datas
 */
 	INSERT INTO users VALUES
-	(null, 'Bernard Madoff', '11 Wall St, New York, NY 10005, États-Unis', 'madoff@larnaque.com', '1938-04-29', '2020-10-04'),
-	(null, 'Christophe Rocancourt', 'prison de la Santé, 42, rue de la Santé 75014 Paris', 'rocancourt@lasante.gouv', '1967-07-16', '2020-10-03');
+	(null, 'Bernard Madoff', '11 Wall St, New York, NY 10005, États-Unis', 'madoff@larnaque.com', '$2y$10$0enD99Yc1bIjyZ0dD0GeLOuqE9yyLLNe3YCsmlpZUwrKigj.L8lNG','1938-04-29', '2020-10-04'),
+	(null, 'Christophe Rocancourt', 'prison de la Santé, 42, rue de la Santé 75014 Paris', 'rocancourt@lasante.gouv', '$2y$10$vRcjJQBwGk4axLki.S1ZxeS6EuCH50QLt5ggwAgghDAMVNG1sF2Dq','1967-07-16', '2020-10-03');
 
 	INSERT INTO accounts VALUES
 	(null, 1, 'GB82 WEST 1234 4598 7654 32', 'Compte courant', '1200.45', '2020-10-04'),
