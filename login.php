@@ -1,7 +1,5 @@
 <?php
-  session_start();
-
-  // Avoid XSS input from user
+  // Avoid XSS from user inputs
   if(isset($_POST['id']) && !empty($_POST['id'])) 
     $id = htmlspecialchars($_POST['id']);
 
@@ -9,11 +7,22 @@
     $pwd = htmlspecialchars($_POST['pwd']);
 
   // Verify user Id and Password, then set logged=TRUE
-  if (isset($id) && isset($pwd))
-    if ($id=='AdaLovelace' && $pwd=='password'){
-      $_SESSION['logged'] = true;
-      header('Location: index.php');
+  if (isset($id) && isset($pwd)) {
+    require "page/database.php";
+    $db = dbConnect();
+  
+    $query = $db->prepare("SELECT * FROM users WHERE u_email = :email");
+    $query->execute(["email" => $id]);
+
+    $user = $query->fetch(PDO::FETCH_ASSOC);
+    if ($user) {
+       if ( password_verify($pwd, $user["u_password"])) {
+          session_start();
+          $_SESSION['logged'] = true;
+          header('Location: index.php');
+      }
     }
+  }
 
   // User's not logged so display login page
   $title = "Vous connecter";
@@ -31,7 +40,7 @@
           <div class="input-group-append">
             <span class="input-group-text"><i class="fas fa-user"></i></span>
           </div>
-          <input type="text" name="id" class="form-control input_user" placeholder="Identifiant">
+          <input type="email" name="id" class="form-control input_user" placeholder="Email">
         </div>
         <div class="input-group mb-2">
           <div class="input-group-append">
