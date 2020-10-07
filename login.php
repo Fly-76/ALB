@@ -28,7 +28,6 @@
   $title = "Vous connecter";
   include "page/header.php";
 ?>
-  <script src="https://kit.fontawesome.com/a5a3281376.js" crossorigin="anonymous"></script>
 
   <!-- main -->
   <main class="d-flex justify-content-center form_container">
