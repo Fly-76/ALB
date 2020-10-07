@@ -1,6 +1,30 @@
 <?php
   session_start();
 
+  //// DEBUG
+  require "page/database.php";
+  $db = dbConnect();
+
+  $query = $db->prepare(
+    "SELECT * FROM users 
+    WHERE u_email = :email"
+  );
+
+  $query->execute([
+      "email" => 'madoff@larnaque.com',
+  ]);
+
+  $user = $query->fetch(PDO::FETCH_ASSOC);
+  var_dump($user);
+
+
+
+
+
+
+
+  //// END DEBUG
+
   // Avoid XSS input from user
   if(isset($_POST['id']) && !empty($_POST['id'])) 
     $id = htmlspecialchars($_POST['id']);
