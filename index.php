@@ -4,10 +4,14 @@
   if (!isset($_SESSION['logged']))
     header('Location: login.php');
 
+  $userId = $_SESSION['logged'];
+
+  require_once "page/database.php";
+  $db = dbConnect();
+  $accounts = getAccounts($db, $userId);
+
   $title = "Consulter vos comptes";
   include "page/header.php";
-  require_once "data/accounts.php";
-  $accounts = get_accounts();
 ?>
 
   <!-- main -->
@@ -20,12 +24,12 @@
         <div class ="col-12 col-sm-6 col-lg-3 my-2">
           <div class="card border-primary h-100">
             <div class="card-header">
-              <a href="account.php?account=<?php echo $value['number'] ?>" >
-                <?php echo $value['number'] ?>
+              <a href="account.php?account=<?php echo $value['a_id'] ?>" >
+                <?php echo $value['a_number'] ?>
               </a>
             </div>
             <h4 class="card-title text-center">Solde de compte</h4>
-            <p class="card-text text-right pr-3"><?php echo $value['amount'] ?></p>
+            <p class="card-text text-right pr-3"><?php echo $value['a_balance'] ?> €</p>
             <div class="card-footer">
               <a href="#" class="btn btn-primary w-100 my-1">Effectuer un dépôt</a>
               <a href="#" class="btn btn-primary w-100 my-1">Effectuer un retrait</a>

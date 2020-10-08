@@ -11,14 +11,15 @@
     require "page/database.php";
     $db = dbConnect();
   
-    $query = $db->prepare("SELECT * FROM alb_users WHERE u_email = :email");
-    $query->execute(["email" => $id]);
+    // $query = $db->prepare("SELECT * FROM alb_users WHERE u_email = :email");
+    // $query->execute(["email" => $id]);
 
-    $user = $query->fetch(PDO::FETCH_ASSOC);
+    // $user = $query->fetch(PDO::FETCH_ASSOC);
+    $user = getUser($db, $id);
     if ($user) {
        if ( password_verify($pwd, $user["u_password"])) {
           session_start();
-          $_SESSION['logged'] = true;
+          $_SESSION['logged'] = $user["u_id"];
           header('Location: index.php');
       }
     }
