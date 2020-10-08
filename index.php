@@ -24,12 +24,12 @@
         <div class ="col-12 col-sm-6 col-lg-3 my-2">
           <div class="card border-primary h-100">
             <div class="card-header">
-              <a href="account.php?account=<?php echo $value['a_id'] ?>" >
-                <?php echo $value['a_number'] ?>
+              <a href="account.php?account=<?= $value['a_id'] ?>" >
+                <?= $value['a_number'] ?>
               </a>
             </div>
             <h4 class="card-title text-center">Solde de compte</h4>
-            <p class="card-text text-right pr-3"><?php echo $value['a_balance'] ?> €</p>
+            <p class="card-text text-right pr-3"><?= $value['a_balance'] ?> €</p>
             <div class="card-footer">
               <a href="#" class="btn btn-primary w-100 my-1">Effectuer un dépôt</a>
               <a href="#" class="btn btn-primary w-100 my-1">Effectuer un retrait</a>

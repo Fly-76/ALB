@@ -4,6 +4,12 @@
   if (!isset($_SESSION['logged']))
     header('Location: login.php');
 
+  $userId = $_SESSION['logged'];
+
+  require_once "page/database.php";
+  $db = dbConnect();
+  $accounts = getAccounts($db, $userId); 
+
   $title = "Effectuer un virement";
   include "page/header.php";
 ?>
@@ -18,9 +24,13 @@
           <div class="form-group">
             <label for="accountDebit">Compte à débiter</label>
             <select class="form-control" id="accountDebit">
-              <option>Compte : xxxxxxxxx</option>
-              <option>Compte : yyyyyyyyy</option>
-              <option>Compte : zzzzzzzzz</option>
+            <?php
+              foreach ($accounts as $keys => $value):
+            ?>
+              <option><?= $value['a_type'] ?> : <?= $value['a_number'] ?></option>
+            <?php
+              endforeach;
+            ?>            
             </select>
           </div>
 
@@ -32,9 +42,13 @@
           <div class="form-group">
             <label for="accountCredit">Compte à créditer</label>
             <select class="form-control" id="accountCredit">
-              <option>Compte : xxxxxxxxx</option>
-              <option>Compte : yyyyyyyyy</option>
-              <option>Compte : zzzzzzzzz</option>
+            <?php
+              foreach ($accounts as $keys => $value):
+            ?>
+              <option><?= $value['a_type'] ?> : <?= $value['a_number'] ?></option>
+            <?php
+              endforeach;
+            ?>            
             </select>
           </div>
 
