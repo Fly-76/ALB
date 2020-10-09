@@ -3,12 +3,28 @@
   session_start();
   if (!isset($_SESSION['logged']))
     header('Location: login.php');
-
+  
+  $userId = $_SESSION['logged'];
+  
+  // check POST data validity
   if(isset($_POST['type']) && !empty($_POST['type'])) 
     $type = htmlspecialchars($_POST['type']);
 
   if(isset($_POST['amount']) && !empty($_POST['amount'])) 
     $amount = htmlspecialchars($_POST['amount']);
+
+
+  require_once "page/database.php";
+  $db = dbConnect();
+//
+
+
+
+
+
+
+
+
 
   $title = "Ouvrir un nouveau compte";
   include "page/header.php";
