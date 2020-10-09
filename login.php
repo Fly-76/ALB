@@ -26,6 +26,7 @@
   }
 
   // User's not logged so display login page
+  $cnxState = 'Connexion';
   $title = "Vous connecter";
   include "page/header.php";
 ?>

@@ -28,18 +28,23 @@
 
   <!-- navigation bar -->
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">ALB</a>
+    <a class="navbar-brand" href="index.php"><img src="img/ADA.png" width="30" height="30" alt=""></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <a class="nav-link active" href="index.php">Mon compte<span class="sr-only">(current)</span></a>
-        <a class="nav-link" href="virements.php">Virement</a>
-        <a class="nav-link" href="souscrire.php">Souscrire</a>
-        <a class="nav-link" href="statistiques.php">Statistiques</a>
-        <a class="nav-link" href="blog.php">Blog</a>
-      </div>
+      <!-- <div class="navbar-nav"> -->
+      <ul class="navbar-nav mr-auto">
+        <li><a class="nav-link active" href="index.php">Mon compte<span class="sr-only">(current)</span></a></li>
+        <li><a class="nav-link" href="virements.php">Virement</a></li>
+        <li><a class="nav-link" href="souscrire.php">Souscrire</a></li>
+        <li><a class="nav-link" href="statistiques.php">Statistiques</a></li>
+        <li><a class="nav-link" href="blog.php">Blog</a></li>
+      <!-- </div> -->
+      </ul>
+      <form action="disconnect.php" class="form-inline">
+        <button class="btn btn-outline-info my-2 my-sm-0" type="submit"><?= $cnxState ?></button>
+      </form>
     </div>
   </nav>    
   <!-- end navigation bar -->
