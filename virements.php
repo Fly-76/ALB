@@ -24,6 +24,7 @@
   $accounts = getAccounts($db, $userId);
   $Transfer = execTransfer($db, $accountDebit, $accountCredit, $amount);
 
+  $cnxState = 'Deconnexion';
   $title = "Effectuer un virement";
   include "page/header.php";
 ?>

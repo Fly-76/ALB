@@ -25,7 +25,7 @@
 
 
 
-
+  $cnxState = 'Deconnexion';
   $title = "Ouvrir un nouveau compte";
   include "page/header.php";
 ?>

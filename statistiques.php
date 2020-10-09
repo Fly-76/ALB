@@ -1,4 +1,5 @@
 <?php
+  $cnxState = 'Deconnexion';
   $title = "Statistiques CAC40";
   include "page/header.php";
 ?>

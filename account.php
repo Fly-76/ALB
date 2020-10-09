@@ -13,6 +13,7 @@
     $transact = getTransact($db, $accountId);
   }
 
+  $cnxState = 'Deconnexion';
   $title = $account['a_type'] . " - " . $account['a_number'];
   include "page/header.php";
 ?>

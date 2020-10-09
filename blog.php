@@ -1,6 +1,5 @@
 <?php
-  session_start();
-  session_destroy();
+  $cnxState = 'Deconnexion';
   $title = "Toute l'actualité de notre blog";
   include "page/header.php";
 ?>
