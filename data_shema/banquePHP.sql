@@ -42,8 +42,8 @@
 	CREATE TABLE alb_accounts (
 		a_id TINYINT UNSIGNED NOT NULL AUTO_INCREMENT UNIQUE,
 		a_user_id INT UNSIGNED NOT NULL,
-		a_number VARCHAR(35) NOT NULL,
-		a_type VARCHAR(20) NOT NULL,
+		a_number VARCHAR(35) NOT NULL UNIQUE,
+		a_type VARCHAR(30) NOT NULL,
 		a_balance DECIMAL(11,2) NOT NULL,
 		a_creation_date DATE NOT NULL,
 		PRIMARY KEY (a_id),
@@ -77,12 +77,20 @@
 	(null, 'Christophe Rocancourt', 'prison de la Santé, 42, rue de la Santé 75014 Paris', 'roc75@lasante.gouv', '$2y$10$vRcjJQBwGk4axLki.S1ZxeS6EuCH50QLt5ggwAgghDAMVNG1sF2Dq','1967-07-16', '2020-10-03');
 
 	INSERT INTO alb_accounts VALUES
-	(null, 1, 'FR 00024367518 55', 'Compte courant', '1200.45', '2020-10-04'),
-	(null, 2, 'FR 00026011712 20', 'Compte courant', '6500.45', '2020-10-03'),
-	(null, 2, 'FR 00016017702 29', 'Plan Epargne Logement', '498.45', '2020-10-03'),
-	(null, 2, 'FR 00024408900 69', 'Livret A', '1980.45', '2020-10-04');
---	(null, 2, 'FR76 30004 01587 00024408900 69', 'Livret A', '1980.45', '2020-10-04');
-	
+	(null, 1, 'FR 00024367518', 'Compte courant', '1200.45', '2020-10-04'),
+	(null, 2, 'FR 00026011712', 'Compte courant', '6500.45', '2020-10-03'),
+	(null, 2, 'FR 00016017702', 'Plan Epargne Logement', '498.45', '2020-10-03'),
+	(null, 2, 'FR 00024408900', 'Livret A', '1980.45', '2020-10-04');
+
+--	Notice about IBAN (Internationnal Bank Account Number)
+-- 	France : FR76 30004 01587 00024408900 69
+--		FR				Code Pays 		-> FRANCE
+--		76				Clé IBAN
+--		30004			Code Banque 	-> BNP PARIBAS
+--		01587			Code Guichet 	-> 50 RUE JEAN JAURES JOUY EN JOSAS
+-- 		00024408900		N° de Compte
+--		69				Clé	RIB
+
 	INSERT INTO alb_transactions VALUES
 	(null, 1, 'Depot guichet', 'Credit', '1200.45', '2020-10-04'),
 	(null, 2, 'Depot guichet', 'Credit', '7500.45', '2020-10-03'),

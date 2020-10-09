@@ -6,9 +6,23 @@
 
   $userId = $_SESSION['logged'];
 
+  // check POST data validity
+  $accountDebit = $accountCredit = $amount = '';
+
+  if(isset($_POST['accountDebit']) && !empty($_POST['accountDebit'])) 
+    $accountDebit = htmlspecialchars($_POST['accountDebit']);
+
+  if(isset($_POST['accountCredit']) && !empty($_POST['accountCredit'])) 
+    $accountCredit = htmlspecialchars($_POST['accountCredit']);
+
+  if(isset($_POST['amount']) && !empty($_POST['amount'])) 
+    $amount = htmlspecialchars($_POST['amount']);
+
+
   require_once "page/database.php";
   $db = dbConnect();
-  $accounts = getAccounts($db, $userId); 
+  $accounts = getAccounts($db, $userId);
+  $Transfer = execTransfer($db, $accountDebit, $accountCredit, $amount);
 
   $title = "Effectuer un virement";
   include "page/header.php";
@@ -23,7 +37,7 @@
 
           <div class="form-group">
             <label for="accountDebit">Compte à débiter</label>
-            <select class="form-control" id="accountDebit">
+            <select class="form-control" id="accountDebit" name="accountDebit">
             <?php
               foreach ($accounts as $keys => $value):
             ?>
@@ -36,12 +50,12 @@
 
           <div class="form-group">
             <label for="amount">Montant du virement en euros</label>
-            <input type="number" class="form-control" id="amount" placeholder="Veuillez entrer le montant">
+            <input type="number" class="form-control" id="amount" name="amount" placeholder="Veuillez entrer le montant">
           </div>
 
           <div class="form-group">
             <label for="accountCredit">Compte à créditer</label>
-            <select class="form-control" id="accountCredit">
+            <select class="form-control" id="accountCredit" name="accountCredit">
             <?php
               foreach ($accounts as $keys => $value):
             ?>
