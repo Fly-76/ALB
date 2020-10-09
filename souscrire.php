@@ -7,6 +7,8 @@
   $userId = $_SESSION['logged'];
   
   // check POST data validity
+  $type = $amount = '';
+
   if(isset($_POST['type']) && !empty($_POST['type'])) 
     $type = htmlspecialchars($_POST['type']);
 
@@ -16,14 +18,7 @@
 
   require_once "page/database.php";
   $db = dbConnect();
-//
-
-
-
-
-
-
-
+  $newAccount = newAccount($db, $userId, $type, $amount);
 
   $cnxState = 'Deconnexion';
   $title = "Ouvrir un nouveau compte";

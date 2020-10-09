@@ -109,3 +109,51 @@ function execTransfer($db, $accountDebit, $accountCredit, $amount) {
         $db->commit();
     }
 }
+
+
+function newAccount($db, $userId, $type, $amount) {
+
+    if ($type!='' && $amount!='') {
+
+        $query = $db->query("SELECT CONCAT( 'FR 000' ,RIGHT(MAX(a_number),11) + FLOOR(RAND()*1000)) AS accountNb FROM alb_accounts");
+        $account = $query->fetch(PDO::FETCH_ASSOC);
+
+        $accountNb = $account['accountNb'];
+
+        $query = $db->prepare("
+            INSERT INTO alb_accounts
+            VALUE (
+                null,
+                :userId,
+                :accountNb,
+                :type,
+                :amount,
+                NOW()
+            )
+        ");
+        $query->execute([
+            "accountNb" => $accountNb,
+            "amount" => $amount,
+            "userId" => $userId,
+            "type" => $type
+        ]);
+
+        // Log first transaction
+        $query = $db->prepare("
+            INSERT INTO alb_transactions 
+            VALUES (
+                null,
+                (SELECT a_id FROM alb_accounts WHERE a_number = :accountNb),
+                'Ouverture de compte',
+                'Credit',
+                :amount,
+                NOW()
+            )
+        ");
+
+        $query->execute([
+            "amount" => $amount,
+            "accountNb" => $accountNb
+        ]);
+    }
+}
