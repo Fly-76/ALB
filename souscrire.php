@@ -38,7 +38,7 @@
             <select class="form-control" id="account" name="type">
               <option>Compte courant</option>
               <option>Livret A</option>
-              <option>Plan d'épargne logement</option>
+              <option>Plan Epargne logement</option>
             </select>
           </div>
 

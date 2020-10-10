@@ -25,6 +25,7 @@
         <div class ="col-12 col-sm-6 col-lg-3 my-2">
           <div class="card border-primary h-100">
             <div class="card-header">
+              <h5 class="card-title"><?= $value['a_type'] ?></h4>
               <a href="account.php?account=<?= $value['a_id'] ?>" >
                 <?= $value['a_number'] ?>
               </a>
