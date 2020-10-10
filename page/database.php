@@ -128,7 +128,8 @@ function newAccount($db, $userId, $type, $amount) {
                 :accountNb,
                 :type,
                 :amount,
-                NOW()
+                NOW(),
+                null
             )
         ");
         $query->execute([

@@ -46,6 +46,7 @@
 		a_type VARCHAR(30) NOT NULL,
 		a_balance DECIMAL(11,2) NOT NULL,
 		a_creation_date DATE NOT NULL,
+		a_close_date DATE,
 		PRIMARY KEY (a_id),
 		CONSTRAINT fk_user_id
 			FOREIGN KEY (a_user_id)
@@ -74,13 +75,19 @@
 */
 	INSERT INTO alb_users VALUES
 	(null, 'Bernard Madoff', '11 Wall St, New York, NY 10005, États-Unis', 'madoff@larnaque.com', '$2y$10$0enD99Yc1bIjyZ0dD0GeLOuqE9yyLLNe3YCsmlpZUwrKigj.L8lNG','1938-04-29', '2020-10-04'),
-	(null, 'Christophe Rocancourt', 'prison de la Santé, 42, rue de la Santé 75014 Paris', 'roc75@lasante.gouv', '$2y$10$vRcjJQBwGk4axLki.S1ZxeS6EuCH50QLt5ggwAgghDAMVNG1sF2Dq','1967-07-16', '2020-10-03');
+	(null, 'Christophe Rocancourt', 'prison de la Santé, 42, rue de la Santé 75014 Paris', 'roc75@lasante.gouv', '$2y$10$vRcjJQBwGk4axLki.S1ZxeS6EuCH50QLt5ggwAgghDAMVNG1sF2Dq','1967-07-16', '2020-10-03'),
+	(null, 'Thomas Gossart', 'Louviers, Haute-Normandie, France', 'root@gmail.com', '$2y$10$HcsgCPwpixf/LyTdVCtP/O3sKkx2vvTgPLav5xQKCrZLKF5WDsdyu','1992-01-01', '2020-10-10');
+
+-- ("Dupont", "Richard", "r.dupont@gmail.com", "Rouen", "76100", "9 rue du gros horloge", "h", "Riri1962!", "1962-05-21"),
+-- ("Melez", "Claire", "clairemelez@outlook.com", "Lille", "59100", "45 rue du Molinel", "f", "AstraGirl154", "1989-11-14");
+-- 'root@gmail.com' / 'root' 
+
 
 	INSERT INTO alb_accounts VALUES
-	(null, 1, 'FR 00024367518', 'Compte courant', '1200.45', '2020-10-04'),
-	(null, 2, 'FR 00026011712', 'Compte courant', '6500.45', '2020-10-03'),
-	(null, 2, 'FR 00016017702', 'Plan Epargne Logement', '498.45', '2020-10-03'),
-	(null, 2, 'FR 00024408900', 'Livret A', '1980.45', '2020-10-04');
+	(null, 1, 'FR 00024367518', 'Compte courant', '1200.45', '2020-10-04', null),
+	(null, 2, 'FR 00026011712', 'Compte courant', '6500.45', '2020-10-03', null),
+	(null, 2, 'FR 00016017702', 'Plan Epargne Logement', '498.45', '2020-10-03', null),
+	(null, 2, 'FR 00024408900', 'Livret A', '1980.45', '2020-10-04', null);
 
 --	Notice about IBAN (Internationnal Bank Account Number)
 -- 	France : FR76 30004 01587 00024408900 69
