@@ -35,6 +35,7 @@
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <!-- <div class="navbar-nav"> -->
       <ul class="navbar-nav mr-auto">
+        <li><a class="nav-link" href="profil.php">Profil</a></li>
         <li><a class="nav-link active" href="index.php">Mon compte<span class="sr-only">(current)</span></a></li>
         <li><a class="nav-link" href="virements.php">Virement</a></li>
         <li><a class="nav-link" href="souscrire.php">Souscrire</a></li>

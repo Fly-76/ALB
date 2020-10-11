@@ -4,4 +4,4 @@
 function disconnect(){
     window.location="disconnect.php";
 }
-setTimeout("disconnect()", 3 * 60000); //
+let logoffTime = setTimeout("disconnect()", 3 * 60000);
