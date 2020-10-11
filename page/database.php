@@ -19,7 +19,7 @@ function getUser($db, $email) {
 }
 
 function getAccounts($db, $userId) {
-    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_user_id = :userId");
+    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_user_id = :userId AND `a_close_date` IS NULL");
     $query->execute(["userId" => $userId]);
     return $query->fetchall(PDO::FETCH_ASSOC);
 }
@@ -168,5 +168,29 @@ function deleteAccount($db, $accountId) {
 
     if ($accountId!='') {
 
+        // Log last transaction
+        $query = $db->prepare("
+            INSERT INTO alb_transactions 
+            VALUES (
+                null,
+                :accountId
+                'Fermeture de compte',
+                'Debit',
+                (SELECT a_balance FROM alb_accounts WHERE a_id = :accountId),
+                NOW()
+            )
+        ");
+        $query->execute([
+            "accountId" => $accountId
+        ]);
+
+        $query = $db->prepare("
+            UPDATE `alb_accounts`
+            SET `a_close_date`= NOW(), `a_balance` = 0
+            WHERE a_id = :accountId            
+        ");
+        $query->execute([
+            "accountId" => $accountId
+        ]);
     }
 }
