@@ -33,9 +33,9 @@
             <h4 class="card-title text-center">Solde de compte</h4>
             <p class="card-text text-right pr-3"><?= $value['a_balance'] ?> €</p>
             <div class="card-footer">
-              <a href="#" class="btn btn-primary w-100 my-1">Effectuer un dépôt</a>
-              <a href="#" class="btn btn-primary w-100 my-1">Effectuer un retrait</a>
-              <a href="#" class="btn btn btn-warning w-100 my-1">Supprimer le compte</a>
+              <a href="depot.php?account=<?= $value['a_id'] ?>" class="btn btn-primary w-100 my-1">Effectuer un dépôt</a>
+              <a href="retrait.php?account=<?= $value['a_id'] ?>" class="btn btn-primary w-100 my-1">Effectuer un retrait</a>
+              <a href="suppression.php?account=<?= $value['a_id'] ?>" class="btn btn btn-warning w-100 my-1">Supprimer le compte</a>
             </div>
           </div>
         </div>

@@ -34,7 +34,7 @@
   <!-- main -->
   <main class="d-flex justify-content-center form_container">
     <div class="card bg-ligh border-dark mt-4 mb-5 p-4">
-      <div class="mb-3">Veuillez rentre vos identifiants</div>
+      <div class="mb-3">Veuillez compléter vos identifiants</div>
 
       <form action="login.php" method="post">
         <div class="input-group mb-3">

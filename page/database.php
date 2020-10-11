@@ -11,6 +11,7 @@ function dbConnect() {
     }
 }
 
+// --- UTILITY -----------------------------------------------------------------------------
 function getUser($db, $email) {
     $query = $db->prepare("SELECT * FROM alb_users WHERE u_email = :email");
     $query->execute(["email" => $email]);
@@ -35,8 +36,11 @@ function getTransact($db, $accountId) {
     return $query->fetchall(PDO::FETCH_ASSOC);
 }
 
-// --- VIREMENT ----------------------------------------------------------------------------
+function userVerif($db, $accountId, $userId) {
+    return true;
+}
 
+// --- VIREMENT ----------------------------------------------------------------------------
 function accountNb($accountNb) {
     $pos = strrpos($accountNb, ":");
     return substr($accountNb, $pos+2);
@@ -110,7 +114,7 @@ function execTransfer($db, $accountDebit, $accountCredit, $amount) {
     }
 }
 
-
+// --- NEW ACCOUNT CREATION ----------------------------------------------------------------
 function newAccount($db, $userId, $type, $amount) {
 
     if ($type!='' && $amount!='') {
@@ -156,5 +160,13 @@ function newAccount($db, $userId, $type, $amount) {
             "amount" => $amount,
             "accountNb" => $accountNb
         ]);
+    }
+}
+
+// --- ACCOUNT SUPPRESSION -----------------------------------------------------------------
+function deleteAccount($db, $accountId) {
+
+    if ($accountId!='') {
+
     }
 }
