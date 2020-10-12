@@ -1,4 +1,6 @@
 <?php
+  $uName = '';
+  if (isset($_SESSION['uName'])) $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Toute l'actualité de notre blog";
   include "page/header.php";

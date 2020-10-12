@@ -9,6 +9,7 @@
   require_once "page/database.php";
   $db = dbConnect();
 
+  $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = 'Modifier vos informations de connexion';
   include "page/header.php";

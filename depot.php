@@ -13,6 +13,7 @@
     $transact = getTransact($db, $accountId);
   }
 
+  $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Depot sur " . $account['a_type'] . " - " . $account['a_number'];
   include "page/header.php";

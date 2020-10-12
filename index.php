@@ -10,6 +10,7 @@
   $db = dbConnect();
   $accounts = getAccounts($db, $userId);
 
+  $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Consulter vos comptes";
   include "page/header.php";

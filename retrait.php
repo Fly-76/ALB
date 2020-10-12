@@ -13,6 +13,7 @@
     $transact = getTransact($db, $accountId);
   }
 
+  $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Retrait du " . $account['a_type'] . " : " . $account['a_number'];
   include "page/header.php";

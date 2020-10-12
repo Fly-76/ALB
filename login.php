@@ -20,12 +20,14 @@
        if ( password_verify($pwd, $user["u_password"])) {
           session_start();
           $_SESSION['logged'] = $user["u_id"];
+          $_SESSION['uName'] = $user["u_name"];
           header('Location: index.php');
       }
     }
   }
 
   // User's not logged so display login page
+  $uName ='';
   $cnxState = 'Connexion';
   $title = "Vous connecter";
   include "page/header.php";

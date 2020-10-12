@@ -37,7 +37,14 @@ function getTransact($db, $accountId) {
 }
 
 function userVerif($db, $accountId, $userId) {
-    return true;
+    $result =false;
+    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_id = :accountId, a_user_id = :userId");
+    $query->execute([
+        "accountId" => $accountId,
+        "userId" => $userId
+    ]);
+    if ($query->fetch(PDO::FETCH_ASSOC)) $result =true;
+    return $result;
 }
 
 // --- VIREMENT ----------------------------------------------------------------------------
