@@ -31,5 +31,8 @@ loadContent();
 
 // Show splash screen
 $(document).ready(function(){
-    $("#rules").modal();
+    if (sessionStorage.getItem('splashDisplayed')===null) {
+        sessionStorage.setItem('splashDisplayed', 'true');
+        $("#rules").modal();
+    }
 });
