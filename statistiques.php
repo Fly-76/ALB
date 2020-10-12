@@ -1,4 +1,6 @@
 <?php
+  $uName = '';
+  if (isset($_SESSION['uName'])) $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Statistiques CAC40";
   include "page/header.php";

@@ -20,6 +20,7 @@
   $db = dbConnect();
   $newAccount = newAccount($db, $userId, $type, $amount);
 
+  $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Ouvrir un nouveau compte";
   include "page/header.php";
