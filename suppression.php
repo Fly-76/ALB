@@ -13,7 +13,6 @@
     $db = dbConnect();
     if (userVerif($db, $accountId, $userId)) {
       deleteAccount($db, $accountId);
-
     } else header('Location: login.php');
   }
 

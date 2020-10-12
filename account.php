@@ -4,11 +4,15 @@
   if (!isset($_SESSION['logged']))
     header('Location: login.php');
 
+  $userId = $_SESSION['logged'];
+
   if(isset($_GET['account']) && !empty($_GET['account'])) {
     $accountId = htmlspecialchars($_GET['account']);
 
     require_once "page/database.php";
     $db = dbConnect();
+    if (!userVerif($db, $accountId, $userId)) header('Location: login.php');
+  
     $account = getAccount($db, $accountId);
     $transact = getTransact($db, $accountId);
   }

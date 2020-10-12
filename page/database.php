@@ -38,7 +38,7 @@ function getTransact($db, $accountId) {
 
 function userVerif($db, $accountId, $userId) {
     $result =false;
-    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_id = :accountId, a_user_id = :userId");
+    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_id = :accountId AND a_user_id = :userId");
     $query->execute([
         "accountId" => $accountId,
         "userId" => $userId
