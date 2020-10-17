@@ -1,19 +1,11 @@
 <?php
-  $uName = '';
-  if (isset($_SESSION['uName'])) $uName =($_SESSION['uName']);
-  $cnxState = 'Deconnexion';
-  $title = "Toute l'actualité de notre blog";
-  include "view/template/header.php";
-?>
+$uName = '';
+if (isset($_SESSION['uName'])) $uName =($_SESSION['uName']);
+$cnxState = 'Deconnexion';
+$title = "Toute l'actualité de notre blog";
+include "view/template/header.php";
 
-  <!-- main -->
-  <main class="container">
-    <section class="row">
+require "view/blogView.php";
 
-    </section>
-  </main>
-  <!-- end main -->
+include "view/template/footer.php";
 
-<?php
-  include "view/template/footer.php";
-?>
