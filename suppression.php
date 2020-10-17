@@ -9,7 +9,7 @@
   if(isset($_GET['account']) && !empty($_GET['account'])) {
     $accountId = htmlspecialchars($_GET['account']);
 
-    require_once "page/database.php";
+    require_once "view/template/database.php";
     $db = dbConnect();
     if (userVerif($db, $accountId, $userId)) {
       deleteAccount($db, $accountId);

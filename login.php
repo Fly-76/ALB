@@ -8,7 +8,7 @@
 
   // Verify user Id and Password, then set logged=TRUE
   if (isset($id) && isset($pwd)) {
-    require "page/database.php";
+    require "view/template/database.php";
     $db = dbConnect();
   
     // $query = $db->prepare("SELECT * FROM alb_users WHERE u_email = :email");
@@ -30,7 +30,7 @@
   $uName ='';
   $cnxState = 'Connexion';
   $title = "Vous connecter";
-  include "page/header.php";
+  include "view/template/header.php";
 ?>
 
   <!-- main -->
@@ -60,6 +60,6 @@
 <!-- end main -->
 
 <?php
-  include "page/footer.php";
+  include "view/template/footer.php";
 ?>
 

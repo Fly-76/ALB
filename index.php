@@ -6,14 +6,14 @@
 
   $userId = $_SESSION['logged'];
 
-  require_once "page/database.php";
+  require_once "view/template/database.php";
   $db = dbConnect();
   $accounts = getAccounts($db, $userId);
 
   $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Consulter vos comptes";
-  include "page/header.php";
+  include "view/template/header.php";
 ?>
 
   <!-- main -->
@@ -24,7 +24,7 @@
         foreach ($accounts as $keys => $value):
       ?>
         <div class ="col-12 col-sm-6 col-lg-3 my-2">
-          <div class="card border-primary h-100">
+          <div class="card bg-ligh border-dark h-100">
             <div class="card-header">
               <h5 class="card-title"><?= $value['a_type'] ?></h4>
               <a href="account.php?account=<?= $value['a_id'] ?>" >
@@ -67,5 +67,5 @@
   <!-- end modal -->
 
 <?php
-  include "page/footer.php";
+  include "view/template/footer.php";
 ?>
