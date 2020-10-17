@@ -3,7 +3,7 @@
   if (isset($_SESSION['uName'])) $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Toute l'actualité de notre blog";
-  include "page/header.php";
+  include "view/template/header.php";
 ?>
 
   <!-- main -->
@@ -15,5 +15,5 @@
   <!-- end main -->
 
 <?php
-  include "page/footer.php";
+  include "view/template/footer.php";
 ?>

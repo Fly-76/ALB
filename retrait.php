@@ -7,7 +7,7 @@
   if(isset($_GET['account']) && !empty($_GET['account'])) {
     $accountId = htmlspecialchars($_GET['account']);
 
-    require_once "page/database.php";
+    require_once "view/template/database.php";
     $db = dbConnect();
     $account = getAccount($db, $accountId);
     $transact = getTransact($db, $accountId);
@@ -16,7 +16,7 @@
   $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Retrait du " . $account['a_type'] . " : " . $account['a_number'];
-  include "page/header.php";
+  include "view/template/header.php";
 ?>
 
   <!-- main -->
@@ -31,5 +31,5 @@
 
 
 <?php
-  include "page/footer.php";
+  include "view/template/footer.php";
 ?>

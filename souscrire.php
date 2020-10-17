@@ -16,14 +16,14 @@
     $amount = htmlspecialchars($_POST['amount']);
 
 
-  require_once "page/database.php";
+  require_once "view/template/database.php";
   $db = dbConnect();
   $newAccount = newAccount($db, $userId, $type, $amount);
 
   $uName =($_SESSION['uName']);
   $cnxState = 'Deconnexion';
   $title = "Ouvrir un nouveau compte";
-  include "page/header.php";
+  include "view/template/header.php";
 ?>
 
   <!-- main -->
@@ -75,5 +75,5 @@
   <!-- end main -->
 
 <?php
-  include "page/footer.php";
+  include "view/template/footer.php";
 ?>
