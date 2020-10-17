@@ -175,6 +175,28 @@ function deleteAccount($db, $accountId) {
 
     if ($accountId!='') {
 
+        $query = $db->prepare("
+            DELETE FROM `alb_transactions`
+            WHERE t_account_id = :accountId            
+        ");
+        $query->execute([
+            "accountId" => $accountId
+        ]);
+
+        $query = $db->prepare("
+            DELETE FROM `alb_accounts`
+            WHERE a_id = :accountId            
+        ");
+        $query->execute([
+            "accountId" => $accountId
+        ]);
+    }
+}
+
+function old_deleteAccount($db, $accountId) {
+    // This version keep history in to Database
+    if ($accountId!='') {
+
         // Log last transaction
         $query = $db->prepare("
             INSERT INTO alb_transactions 

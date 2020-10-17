@@ -31,8 +31,8 @@
   }
 
 ?>
-  <script src="js/main.js"></script>
-  <script src="js/<?php echo $page ?>.js"></script>
+  <script src="public/js/main.js"></script>
+  <script src="public/js/<?php echo $page ?>.js"></script>
 
 </body>
 </html>
