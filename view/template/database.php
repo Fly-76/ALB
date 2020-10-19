@@ -19,7 +19,18 @@ function getUser($db, $email) {
 }
 
 function getAccounts($db, $userId) {
-    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_user_id = :userId AND `a_close_date` IS NULL");
+//    $query = $db->prepare("SELECT * FROM alb_accounts WHERE a_user_id = :userId AND `a_close_date` IS NULL");
+//    http://www.lafabriquedecode.com/blog/2013/06/mysql-max/
+$query = $db->prepare("
+            SELECT *
+            FROM alb_accounts
+            INNER JOIN alb_transactions
+            ON a_id =t_account_id
+            WHERE a_user_id = :userId AND `a_close_date` IS NULL
+            AND t_id = (SELECT MAX(t_id)
+                        FROM alb_transactions
+                        WHERE t_account_id = a_id);
+            ");
     $query->execute(["userId" => $userId]);
     return $query->fetchall(PDO::FETCH_ASSOC);
 }
@@ -221,5 +232,45 @@ function old_deleteAccount($db, $accountId) {
         $query->execute([
             "accountId" => $accountId
         ]);
+    }
+}
+
+// --- COUNTER OPERARATION  ----------------------------------------------------------------
+function execCounterTransfer($db, $account, $type, $amount) {
+
+    if ($account!='' && $type!='' && $amount!='') {
+        $db->beginTransaction();
+
+        // Log credit/debit transaction
+        $query = $db->prepare("
+            INSERT INTO alb_transactions 
+            VALUES (
+                null,
+                :account,
+                :opDescription,
+                :opName,
+                :amount,
+                NOW()
+            )
+        ");
+
+        $query->execute([
+            "amount" => $amount,
+            "opName" => ucfirst($type),
+            "opDescription" => ucfirst($type) . ' guichet',
+            "account" => $account
+        ]);
+        
+         $query = $db->prepare("
+            UPDATE alb_accounts
+            SET a_balance = ((SELECT a_balance FROM alb_accounts WHERE a_id = :account) + :amount)
+            WHERE a_id = :account;
+        ");
+        $query->execute([
+            "amount" => $type=="depot"?$amount:(-1)*$amount,
+            "account" => $account
+        ]);
+
+        $db->commit();
     }
 }
