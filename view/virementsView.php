@@ -20,7 +20,7 @@
 
         <div class="form-group">
         <label for="amount">Montant du virement en euros</label>
-        <input type="number" class="form-control" id="amount" name="amount" placeholder="Veuillez entrer le montant">
+        <input type="number" class="form-control" id="amount" name="amount" placeholder="Veuillez entrer le montant" min="0" max="100000">
         </div>
 
         <div class="form-group">

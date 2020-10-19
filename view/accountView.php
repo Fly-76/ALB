@@ -19,7 +19,7 @@
         <td><?= $value['t_description'] ?></td>
         <td><?= $value['t_type'] ?></td>
         <td><?= $value['t_amount'] ?> €</td>
-        <td><?= $value['t_date'] ?></td>
+        <td><?= date_format(date_create($value['t_date']),"d/m/Y") ?></td>
         </tr>
     <?php } ?>
     </tbody>
